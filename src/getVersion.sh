@@ -1,10 +1,8 @@
 #!/bin/sh
 FULLTAG=$(git describe --tags)
 REGEX="v([0-9]+)\.([0-9]+)\.([0-9]+)-([0-9]+)-([a-zA-Z0-9]+)"
-echo "${FULLTAG}"
-echo "${REGEX}"
-if [[ $FULLTAG =~ $REGEX ]]
-then
+git describe --tags
+if $FULLTAG =~ $REGEX; then
     MAJORVERSION="${BASH_REMATCH[1]}"
     MINORVERSION="${BASH_REMATCH[2]}"
     PATCHNUMBER="${BASH_REMATCH[3]}"
