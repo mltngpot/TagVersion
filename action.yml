@@ -1,0 +1,38 @@
+name: "Tag Version"
+
+author: "mltngpot"
+
+description: "Extracts version number from tag"
+
+outputs:
+  full-tag:
+    description: "Full Tag"
+    value: ${{ steps.get-version.outputs.describe-tag }}
+  version:
+    description: "Version Number: Major.Minor.Patch"
+    value: ${{ steps.get-version.outputs.version }}
+  full-version:
+    description: "Version Number: Major.Minor.Patch.Build"
+    value: ${{ steps.get-version.outputs.full-version }}
+  major-version:
+    description: "Major Version Number"
+    value: ${{ steps.get-version.outputs.major-version }}
+  minor-version:
+    description: "Minor Version Number"
+    value: ${{ steps.get-version.outputs.minor-version }}
+  patch-number:
+    description: "Patch Number"
+    value: ${{ steps.get-version.outputs.patch-number }}
+  build-number:
+    description: "Build Number"
+    value: ${{ steps.get-version.outputs.build-number }}
+  unique-identifyer:
+    description: "Unique Identifyer"
+    value: ${{ steps.get-version.outputs.unique-identifyer }}  
+
+runs:
+  using: "composite"
+  steps:
+    - id: get-version
+      run: src/getVersion.sh
+      shell: bash
