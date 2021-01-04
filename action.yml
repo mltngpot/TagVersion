@@ -34,5 +34,5 @@ runs:
   using: "composite"
   steps:
     - id: get-version
-      run: src/getVersion.sh
+      run: ${{ github.action_path }}/src/getVersion.sh
       shell: bash
