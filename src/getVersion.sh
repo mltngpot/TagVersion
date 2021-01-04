@@ -1,4 +1,5 @@
 #!/bin/sh
+git fetch --tags
 FULLTAG=$(git describe --tags)
 REGEX="v([0-9]+)\.([0-9]+)\.([0-9]+)-([0-9]+)-([a-zA-Z0-9]+)"
 git describe --tags
