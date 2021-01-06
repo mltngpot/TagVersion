@@ -2,7 +2,7 @@
 FullTag=$(git describe --tags)
 MajorVersion=$(echo $FullTag | grep -oP "v\K([0-9]+)(?=\.([0-9]+)\.([0-9]+))")
 MinorVersion=$(echo $FullTag | grep -oP "v([0-9]+)\.\K([0-9]+)(?=\.([0-9]+))")
-PatchNumber=$(echo $FullTag | grep -oP "v([0-9]+)\.([0-9]+)\.\K([0-9]+)(?=-([0-9]+))")
+PatchNumber=$(echo $FullTag | grep -oP "v([0-9]+)\.([0-9]+)\.\K([0-9]+)")
 Version="${MajorVersion}.${MinorVersion}.${PatchNumber}"
 FullVersion="${Version}.0"
 echo "Major Version == ${MajorVersion}"
