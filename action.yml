@@ -26,9 +26,6 @@ outputs:
   build-number:
     description: "Build Number"
     value: ${{ steps.get-version.outputs.build-number }}
-  unique-identifyer:
-    description: "Unique Identifyer"
-    value: ${{ steps.get-version.outputs.unique-identifyer }}  
 
 runs:
   using: "composite"
