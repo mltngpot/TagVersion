@@ -6,15 +6,15 @@ PatchNumber=$(echo $FullTag | grep -oP "v([0-9]+)\.([0-9]+)\.\K([0-9]+)")
 Version="${MajorVersion}.${MinorVersion}.${PatchNumber}"
 FullVersion="${Version}.0"
 echo "Major Version == ${MajorVersion}"
-echo "::set-output name=major-version::${MajorVersion}"
+echo "major-version=${MajorVersion}" >> $GITHUB_OUTPUT
 echo "Minor Version == ${MinorVersion}"
-echo "::set-output name=minor-version::${MinorVersion}"
+echo "minor-version=${MinorVersion}" >> $GITHUB_OUTPUT
 echo "Patch Number == ${PatchNumber}"
-echo "::set-output name=patch-number::${PatchNumber}"
-echo "::set-output name=build-number::0"
+echo "patch-number=${PatchNumber}" >> $GITHUB_OUTPUT
+echo "build-number=0" >> $GITHUB_OUTPUT
 echo "Version == ${Version}"
-echo "::set-output name=version::${Version}"
+echo "version=:${Version}" >> $GITHUB_OUTPUT
 echo "Full Version == ${FullVersion}"
-echo "::set-output name=full-version::${FullVersion}"
+echo "full-version=${FullVersion}" >> $GITHUB_OUTPUT
 echo "Full Tag == ${FullTag}"
-echo "::set-output name=full-tag::${FullTag}"
+echo "full-tag=${FullTag}" >> $GITHUB_OUTPUT
