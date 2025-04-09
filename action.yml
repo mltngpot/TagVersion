@@ -30,6 +30,12 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - id: get-version
-      run: ${{ github.action_path }}/src/getVersion.sh
-      shell: bash
+    - id: get-version-linux
+      run: src/getVersion.sh
+      if: ${{ $RUNNER_OS == 'Linux' }}
+      shell: bash      
+      
+    - id: get-version-Windows
+      run: src\getVersion
+      if: ${{$RUNNER_OS == 'Windows' }}
+      shell: pwsh
