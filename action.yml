@@ -7,25 +7,25 @@ description: "Extracts version number from tag"
 outputs:
   full-tag:
     description: "Full Tag"
-    value: ${{ steps.get-version.outputs.describe-tag }}
+    value: ${{ runner.os == 'Linux' && steps.get-version.outputs-linux.describe-tag || steps.get-version-windows.outputs.describe-tag }}
   version:
     description: "Version Number: Major.Minor.Patch"
-    value: ${{ steps.get-version.outputs.version }}
+    value: ${{ runner.os == 'Linux' && steps.get-version.outputs-linux.version || steps.get-version-windows.outputs.version }}
   full-version:
     description: "Version Number: Major.Minor.Patch.Build"
-    value: ${{ steps.get-version.outputs.full-version }}
+    value: ${{ runner.os == 'Linux' && steps.get-version.outputs-linux.full-version || steps.get-version-windows.outputs.full-version }}
   major-version:
     description: "Major Version Number"
-    value: ${{ steps.get-version.outputs.major-version }}
+    value: ${{ runner.os == 'Linux' && steps.get-version.outputs-linux.major-version || steps.get-version-windows.outputs.major-version }}
   minor-version:
     description: "Minor Version Number"
-    value: ${{ steps.get-version.outputs.minor-version }}
+    value: ${{ runner.os == 'Linux' && steps.get-version.outputs-linux.minor-version || steps.get-version-windows.outputs.minor-version }}
   patch-number:
     description: "Patch Number"
-    value: ${{ steps.get-version.outputs.patch-number }}
+    value: ${{ runner.os == 'Linux' && steps.get-version.outputs-linux.patch-number || steps.get-version-windows.outputs.patch-number }}
   build-number:
     description: "Build Number"
-    value: ${{ steps.get-version.outputs.build-number }}
+    value: ${{ runner.os == 'Linux' && steps.get-version.outputs-linux.build-number || steps.get-version-windows.outputs.build-number }}
 
 runs:
   using: "composite"
@@ -35,7 +35,7 @@ runs:
       if: runner.os == 'Linux'
       shell: bash      
       
-    - id: get-version-Windows
+    - id: get-version-windows
       run: ${{ github.action_path }}\src\getVersion.ps1
       if: runner.os == 'Windows'
       shell: pwsh
