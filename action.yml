@@ -7,25 +7,25 @@ description: "Extracts version number from tag"
 outputs:
   full-tag:
     description: "Full Tag"
-    value: ${{ runner.os == 'Linux' && steps.get-version.outputs-linux.describe-tag || steps.get-version-windows.outputs.describe-tag }}
+    value: ${{ runner.os == 'Linux' && steps.get-version-linux.outputs.describe-tag || steps.get-version-windows.outputs.describe-tag }}
   version:
     description: "Version Number: Major.Minor.Patch"
-    value: ${{ runner.os == 'Linux' && steps.get-version.outputs-linux.version || steps.get-version-windows.outputs.version }}
+    value: ${{ runner.os == 'Linux' && steps.get-version-linux.outputs.version || steps.get-version-windows.outputs.version }}
   full-version:
     description: "Version Number: Major.Minor.Patch.Build"
-    value: ${{ runner.os == 'Linux' && steps.get-version.outputs-linux.full-version || steps.get-version-windows.outputs.full-version }}
+    value: ${{ runner.os == 'Linux' && steps.get-version-linux.outputs.full-version || steps.get-version-windows.outputs.full-version }}
   major-version:
     description: "Major Version Number"
-    value: ${{ runner.os == 'Linux' && steps.get-version.outputs-linux.major-version || steps.get-version-windows.outputs.major-version }}
+    value: ${{ runner.os == 'Linux' && steps.get-version-linux.outputs.major-version || steps.get-version-windows.outputs.major-version }}
   minor-version:
     description: "Minor Version Number"
-    value: ${{ runner.os == 'Linux' && steps.get-version.outputs-linux.minor-version || steps.get-version-windows.outputs.minor-version }}
+    value: ${{ runner.os == 'Linux' && steps.get-version-linux.outputs.minor-version || steps.get-version-windows.outputs.minor-version }}
   patch-number:
     description: "Patch Number"
-    value: ${{ runner.os == 'Linux' && steps.get-version.outputs-linux.patch-number || steps.get-version-windows.outputs.patch-number }}
+    value: ${{ runner.os == 'Linux' && steps.get-version-linux.outputs.patch-number || steps.get-version-windows.outputs.patch-number }}
   build-number:
     description: "Build Number"
-    value: ${{ runner.os == 'Linux' && steps.get-version.outputs-linux.build-number || steps.get-version-windows.outputs.build-number }}
+    value: ${{ runner.os == 'Linux' && steps.get-version-linux.outputs.build-number || steps.get-version-windows.outputs.build-number }}
 
 runs:
   using: "composite"
