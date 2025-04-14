@@ -13,7 +13,7 @@ echo "Patch Number == ${PatchNumber}"
 echo "patch-number=${PatchNumber}" >> $GITHUB_OUTPUT
 echo "build-number=0" >> $GITHUB_OUTPUT
 echo "Version == ${Version}"
-echo "version=:${Version}" >> $GITHUB_OUTPUT
+echo "version=${Version}" >> $GITHUB_OUTPUT
 echo "Full Version == ${FullVersion}"
 echo "full-version=${FullVersion}" >> $GITHUB_OUTPUT
 echo "Full Tag == ${FullTag}"
